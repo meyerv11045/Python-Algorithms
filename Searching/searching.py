@@ -8,5 +8,5 @@ def linear_search(n,arry):
             return i 
     return -1 
 
-arry1 = [54, 36, 9, 14, 45, 24, 3, 76]
-print(linear_search(14,arry1))
+def binary_search(n,arry):
+    pass

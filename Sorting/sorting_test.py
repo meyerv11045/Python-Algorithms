@@ -25,3 +25,6 @@ class TestSorting(unittest.TestCase):
         unsorted = [9,4,2,5,1]
         sortedd = [1,2,4,5,9]
         self.assertListEqual(quicksort(unsorted),sortedd)
+
+if __name__ == '__main__':
+    unittest.main()
