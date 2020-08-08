@@ -1,15 +1,23 @@
 import unittest
-from searching import linear_search, binary_search_iterative,binary_search_recursive
+from searching import linear_search, binary_search_iterative,binary_search_recursive,jump_search
+
+arry = [54, 36, 9, 14, 45, 24, 3, 76]
+arryTarget = 14
+arryIndex = 3
+
+sortedArry = [2,3,4,10,40]
+sortedTarget = 10
+sortedIndex = 3
 
 class TestSearching(unittest.TestCase):
-    
+
     def test_linear_search(self):
-        arry = [54, 36, 9, 14, 45, 24, 3, 76]
-        self.assertEqual(linear_search(14,arry),3)
+        self.assertEqual(linear_search(arry,arryTarget),arryIndex)
     def test_binary_search(self):
-        arry = [2,3,4,10,40]
-        self.assertEqual(binary_search_iterative(arry,10),3)
-        self.assertEqual(binary_search_recursive(arry,0,len(arry)-1,10),3)
-        
+        self.assertEqual(binary_search_iterative(sortedArry,sortedTarget),sortedIndex)
+        self.assertEqual(binary_search_recursive(sortedArry,0,len(sortedArry)-1,sortedTarget),sortedIndex)
+    def test_jumpy_search(self):
+        self.assertEqual(jump_search(sortedArry,sortedTarget),sortedIndex)
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,10 +1,11 @@
+import math
 ''' Linear Search O(n)
     Avg/Worst Case Performace: O(n)
     Best Case Performance (1st element in array): O(1)
 '''
-def linear_search(n,arry):
+def linear_search(arry,target):
     for i in range(len(arry)):
-        if arry[i] == n:
+        if arry[i] == target:
             return i 
     return -1 
 
@@ -33,3 +34,25 @@ def binary_search_recursive(arry,L,R,target):
     if arry[mid] == target: return mid
     elif arry[mid] < target: return binary_search_recursive(arry,mid+1,R,target)
     else: return binary_search_recursive(arry,L,mid-1,target)
+
+''' Jump Search O(√n)
+    Takes pre-sorted array as input
+    Avg/Worst Case Performacne: O(√n)
+    Best Case Performance (1st elem in array): O(1)
+'''
+def jump_search(arry,target):
+    jumpsize = int(math.sqrt(len(arry)))
+
+    index = 0
+    while arry[index] < target:
+        if index + jumpsize > len(arry) - 1:
+            for i in range(index,len(arry)):
+                if arry[i] == target: return i
+            return -1
+        else:
+            index += jumpsize
+    
+    for i in range(index-jumpsize,index):
+        if arry[i] == target: return i
+    return -1 
+
