@@ -13,26 +13,23 @@ def linear_search(n,arry):
     Avg/Worst Case performance: O(log n)
     Best Case Performance (1st elem in array): O(1)
 '''
-def binary_search_iterative(n,arry):
+def binary_search_iterative(arry,target):
     low = 0
     high = len(arry) - 1
 
     while low <= high:
         mid = (low + high) // 2 
-        if n == arry[mid]: 
+        if target == arry[mid]: 
             return mid
-        elif n < arry[mid]: 
+        elif target < arry[mid]: 
             high = mid - 1
         else: 
             low = mid + 1
     return -1
 
-def binary_search_recursive(n,arry,low,high):
-    if low > high: return -1 #Base case
-    mid =(low + high) // 2
-    if n == arry[mid]: 
-        return mid
-    elif n < arry[mid]: 
-        return binary_search_recursive(n,arry,low,mid-1)
-    else: 
-        return binary_search_recursive(n,arry,mid+1,high)
+def binary_search_recursive(arry,L,R,target):
+    if R < L: return -1 #Entire array searched, element not found
+    mid = (L + R) // 2
+    if arry[mid] == target: return mid
+    elif arry[mid] < target: return binary_search_recursive(arry,mid+1,R,target)
+    else: return binary_search_recursive(arry,L,mid-1,target)
