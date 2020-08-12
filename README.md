@@ -4,8 +4,8 @@ https://www.geeksforgeeks.org/fundamentals-of-algorithms/
 ### Searching
 - [x] Linear Search
 - [x] Binary Search
-- [ ] Jump Search
-- [ ] Interpolation Search
+- [x] Jump Search
+- [x] Interpolation Search
 - [ ] Exponential Search
 - [ ] Ternary Search
 
