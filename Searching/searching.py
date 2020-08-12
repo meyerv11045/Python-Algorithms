@@ -12,7 +12,7 @@ def linear_search(arry,target):
 ''' Binary Search O(log n)
     Takes pre-sorted array as input
     Avg/Worst Case performance: O(log n)
-    Best Case Performance (1st elem in array): O(1)
+    Best Case Performance: O(1)
 '''
 def binary_search_iterative(arry,target):
     low = 0
@@ -38,7 +38,7 @@ def binary_search_recursive(arry,L,R,target):
 ''' Jump Search O(√n)
     Takes pre-sorted array as input
     Avg/Worst Case Performacne: O(√n)
-    Best Case Performance (1st elem in array): O(1)
+    Best Case Performance: O(1)
 '''
 def jump_search(arry,target):
     jumpsize = int(math.sqrt(len(arry)))
@@ -54,5 +54,17 @@ def jump_search(arry,target):
     
     for i in range(index-jumpsize,index):
         if arry[i] == target: return i
-    return -1 
+    return -1   
 
+''' Interpolation Search O(log(log n))
+    Takes pre-sorted array as input
+    Avg Performance (Elements uniformly distributed): O(log(log n))
+    Worst Case Performance: O(n)
+    Best Case Peformance: O(1)
+'''
+def interpolation_search(arry,L,R,target):
+    if R < L: return -1
+    mid = int(L + ((target - arry[L]) * (R - L) / (arry[R] - arry[L])))
+    if arry[mid] == target: return mid
+    elif arry[mid] < target: return interpolation_search(arry,mid+1,R,target)
+    else: return interpolation_search(arry,L,mid-1,target)
